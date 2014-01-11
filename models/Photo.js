@@ -1,6 +1,12 @@
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/photo_app_db');
+if (process.env.MONGOHQ_URL ){
+	mongoose.connect(process.env.MONGOHQ_URL);
+} else {
+	mongoose.connect('mongodb://localhost/photo_app_db');	
+}
+
+
 
 var schema = new mongoose.Schema({
 	name: String,

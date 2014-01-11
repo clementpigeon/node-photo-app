@@ -14,6 +14,7 @@ var photos = require('./routes/photos');
 var app = express();
 
 // all environments
+app.set('mongodb', process.env.MONGOHQ_URL || 'mongodb://localhost/photo_app_db');
 app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -31,6 +32,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
+
+
 
 app.get('/', photos.index);
 app.get('/upload', photos.form);
