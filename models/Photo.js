@@ -1,12 +1,8 @@
 var mongoose = require('mongoose');
 
-if (process.env.MONGOHQ_URL ){
-	mongoose.connect(process.env.MONGOHQ_URL);
-} else {
-	mongoose.connect('mongodb://localhost/photo_app_db');	
-}
+var mongoUri = process.env.MONGOHQ_URL || 'mongodb://localhost/photo_app_db'
 
-
+mongoose.connect(mongoUri);
 
 var schema = new mongoose.Schema({
 	name: String,

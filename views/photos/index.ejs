@@ -10,7 +10,7 @@
     <% photos.forEach(function(photo){ %>
     	<div class='photo_box'>
     		<h2><%= photo.name %></h2>
-    		<img src='/photos/<%= photo.path %>'><br>
+    		<img src='https://s3-eu-west-1.amazonaws.com/cp-photo-app/<%= photo.path %>'><br>
         <a href='/photo/<%= photo.id %>/download'>Download</a>
     	</div>
     <% }) %>
@@ -19,3 +19,4 @@
     </footer>
   </body>
 </html> 
+
